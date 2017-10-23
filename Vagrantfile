@@ -11,4 +11,6 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     vb.memory = 1024
     vb.cpus = 2
   end
+  config.vm.provision "shell", inline: "apt update && apt install -y nginx"
+  config.vm.provision "shell", inline: "ln -s /vagrant /var/www/html/demo"
 end
